@@ -56,6 +56,7 @@
                 })
             }),
             eventBus.$on('fileWasUploaded', (url, id)=>{
+
                 var valObj = this.businessCard.filter(function(item){
                     if(item.id == id) {
                         item.value = url;
@@ -68,6 +69,14 @@
                 this.businessCard.filter(function(item){
                     if(item.id == id) {
                         $this.backgroundColor = color;
+                    }
+                });
+            }),
+            eventBus.$on('fileWasCleared', (id)=>{
+                this.businessCard.filter(function(item){
+                    if(item.id == id) {
+                        item.value = '';
+                        return item.value;
                     }
                 });
             })
