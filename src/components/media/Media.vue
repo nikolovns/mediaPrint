@@ -4,13 +4,13 @@
         
         <div class="row">
             <app-media-template
-                :businessCardObj="businessCard"
+                ref="temp"
+                :businessCardObj = "businessCard"
+                :backgroundColor = "backgroundColor"
             ></app-media-template>
         
             <app-media-form
                :businessCardObj="businessCard"
-                @dataWasChanged="changeData"
-                @fileWasUploaded="uploadFile"
             ></app-media-form>
         </div>
         
@@ -22,6 +22,8 @@
     import MediaTemplate from './MediaTemplate.vue'
     import MediaForm from './MediaForm.vue'
 
+    import { eventBus } from '../../main';
+
     export default {
         data() {
             return {
@@ -29,13 +31,14 @@
                     {'name': 'personName', 'value': '', 'type': 'string', 'id':'1'},
                     {'name': 'personPosition', 'value': '', 'type': 'string', 'id':'2'},
                     {'name': 'company', 'value': '', 'type': 'string', 'id':'3'},
+                    {'name': 'phoneNumber', 'value': '', 'type': 'string', 'id':'8'},
                     {'name': 'address', 'value': '', 'type': 'string', 'id':'4'},
                     {'name': 'email', 'value': '', 'type': 'string', 'id':'5'},
                     {'name': 'web', 'value': '', 'type': 'string', 'id':'6'},
                     {'name': 'logoImage', 'value': '', 'type': 'file', 'id':'7'},
-                    {'name': 'backgroundImage', 'value': '', 'type': 'file', 'id':'8'},
                     {'name': 'backgroundColor', 'value': '', 'type': 'color', 'id':'9'},
-                ]
+                ],
+                backgroundColor: 'transparent'
             }
         },
         components: {
@@ -43,59 +46,36 @@
             'app-media-form': MediaForm,
         },
         methods: {
-            changeData(e, value, id) {
+        },
+        created() {
+            eventBus.$on('dataWasChanged', (value, id)=>{
                 var result = this.businessCard.filter(function(item){
                     if(item.id == id) {
                         item.value = value
                     }
                 })
-            },
-            uploadFile(url, id) {
+            }),
+            eventBus.$on('fileWasUploaded', (url, id)=>{
+                 var $this = this;
                 var valObj = this.businessCard.filter(function(item){
-                    
                     if(item.id == id) {
                         item.value = url;
                         return item.value;
                     }
-
                 });
-            }
+            }),
+            eventBus.$on('colorWasChanged', (color, id)=>{
+                var $this = this
+                this.businessCard.filter(function(item){
+                    if(item.id == id) {
+                        $this.backgroundColor = color;
+                    }
+                });
+            })
         }
     }
 </script>
 
-<style>
-    .media-main-container {
-        height: 100%;
-    }
-    
-    .media-main-container .row,
-    .media-main-container .row > * {
-        height: 100%;
-    }
-    
-    .media-container {
-        border: 1px solid blue
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+<style>    
     
 </style>
