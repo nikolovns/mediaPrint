@@ -41,9 +41,9 @@ export default {
         }
     },
     methods: {
-        handleDecrement() {
-            eventBus.$emit('sizeWasDecrease')
-        }
+        // handleDecrement() {
+        //     eventBus.$emit('sizeWasDecrease')
+        // }
     },
     created() {
         eventBus.$on('sizeWasDecrease', (id)=>{
@@ -65,6 +65,15 @@ export default {
                     el.style.fontSize = (fontSize + 1) + 'px';
                 }
             });
+        }),
+        eventBus.$on('fontColorWasChanged', (color, id)=>{
+            var $this = this
+                this.businessCardObj.filter(function(item){
+                    if(item.id == id) {
+                        var el = document.getElementById(id);
+                        el.style.color = color
+                    }
+                });
         })
     }
 }

@@ -14,6 +14,9 @@
             value="+"
             @click="increase(dataId)"
         >
+        <input type="color" name="" id=""
+            @change="changeFontColor($event, dataId)"
+        >
     </div>
     
 </template>
@@ -44,6 +47,10 @@ export default {
         },
         increase(id) {
             eventBus.$emit('sizeWasIncrease', id)
+        },
+        changeFontColor(e, id) {
+            var color = e.target.value;
+            eventBus.$emit('fontColorWasChanged', color, id)
         }
     }
 }

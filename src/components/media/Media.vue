@@ -56,7 +56,6 @@
                 })
             }),
             eventBus.$on('fileWasUploaded', (url, id)=>{
-                 var $this = this;
                 var valObj = this.businessCard.filter(function(item){
                     if(item.id == id) {
                         item.value = url;
