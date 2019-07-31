@@ -2,11 +2,10 @@
    <div class="media-container media-form-container six columns">
         <h2>Form</h2>
         
-         <ul>
-             <li 
-                 v-for="data in businessCardObj"
-                 :key="data.id"
-             >
+            <div 
+                v-for="data in businessCardObj"
+                :key="data.id"
+            >
                 <span>
                     {{ splitData(data.name) }}
                 </span>
@@ -18,8 +17,7 @@
                         ></component>
                     </keep-alive>
                 </span>
-             </li>
-         </ul>
+            </div>
     </div> 
 </template>
 
