@@ -1,7 +1,15 @@
 <template>
-    <input type="color" name="" id=""
-        @change="changeColor($event, dataId)"
-    />
+
+    <div>
+        <input type="color" name="" id=""
+            @change="changeColor($event, dataId)"
+        />
+        <input type="button" value="Clear"
+            @click="clearBackground(dataId)"
+        />
+    </div>
+
+    
 </template>
 
 <script>
@@ -18,6 +26,9 @@ export default {
         changeColor(e, id) {
             var color = e.target.value;
             eventBus.$emit('colorWasChanged', color, id)
+        },
+        clearBackground(id) {
+            eventBus.$emit('backgroundWasCleared', id);
         }
     }
 }

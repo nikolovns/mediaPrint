@@ -72,11 +72,48 @@
                     }
                 });
             }),
+            eventBus.$on('sizeWasDecrease', (id)=>{
+                var valObj = this.businessCard.filter(function(item){
+                    if(item.id == id) {
+                        var el = document.getElementById(id);
+                        var style = window.getComputedStyle(el, null).getPropertyValue('font-size');
+                        var fontSize = parseFloat(style); 
+                        el.style.fontSize = (fontSize - 1) + 'px';
+                    }
+                });
+            }),
+            eventBus.$on('sizeWasIncrease', (id)=>{
+                var valObj = this.businessCard.filter(function(item){
+                    if(item.id == id) {
+                        var el = document.getElementById(id);
+                        var style = window.getComputedStyle(el, null).getPropertyValue('font-size');
+                        var fontSize = parseFloat(style); 
+                        el.style.fontSize = (fontSize + 1) + 'px';
+                    }
+                });
+            }),
+            eventBus.$on('fontColorWasChanged', (color, id)=>{
+                var $this = this
+                    this.businessCard.filter(function(item){
+                        if(item.id == id) {
+                            var el = document.getElementById(id);
+                            el.style.color = color
+                        }
+                    });
+            })
             eventBus.$on('fileWasCleared', (id)=>{
                 this.businessCard.filter(function(item){
                     if(item.id == id) {
                         item.value = '';
                         return item.value;
+                    }
+                });
+            }),
+            eventBus.$on('backgroundWasCleared', (id)=>{
+                var $this = this;
+                this.businessCard.filter(function(item){
+                    if(item.id == id) {
+                        $this.backgroundColor = 'transparent'
                     }
                 });
             })

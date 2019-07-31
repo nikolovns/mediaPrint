@@ -40,41 +40,8 @@ export default {
             
         }
     },
-    methods: {
-        // handleDecrement() {
-        //     eventBus.$emit('sizeWasDecrease')
-        // }
-    },
     created() {
-        eventBus.$on('sizeWasDecrease', (id)=>{
-            var valObj = this.businessCardObj.filter(function(item){
-                if(item.id == id) {
-                    var el = document.getElementById(id);
-                    var style = window.getComputedStyle(el, null).getPropertyValue('font-size');
-                    var fontSize = parseFloat(style); 
-                    el.style.fontSize = (fontSize - 1) + 'px';
-                }
-            });
-        }),
-        eventBus.$on('sizeWasIncrease', (id)=>{
-            var valObj = this.businessCardObj.filter(function(item){
-                if(item.id == id) {
-                    var el = document.getElementById(id);
-                    var style = window.getComputedStyle(el, null).getPropertyValue('font-size');
-                    var fontSize = parseFloat(style); 
-                    el.style.fontSize = (fontSize + 1) + 'px';
-                }
-            });
-        }),
-        eventBus.$on('fontColorWasChanged', (color, id)=>{
-            var $this = this
-                this.businessCardObj.filter(function(item){
-                    if(item.id == id) {
-                        var el = document.getElementById(id);
-                        el.style.color = color
-                    }
-                });
-        })
+        
         
     }
 }
@@ -83,32 +50,24 @@ export default {
 
 <style>
 
-    .logo-image img {
-        max-width: 100%;
+    .media-type-container{
+        border: 1px solid #ccc;
+        height: 226px;
+        width: 340px;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+    .media-type-container div {
+        line-height: 1;
+    }
+    .media-type-container p {
+        margin: 0;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    img {
+        max-width: 100%;
+        width: 30%;
+        min-width: 100px;
+    }
 
 </style>
