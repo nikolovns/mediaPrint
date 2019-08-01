@@ -1,7 +1,7 @@
 <template>
     <div class="user-navigation">
         <ul>
-            <li><router-link to="/user">User</router-link></li>
+            <li><router-link to="/user/1">User</router-link></li>
             <li><router-link to="/user/login">Login</router-link></li>
             <li><router-link to="/user/register">Register</router-link></li>
         </ul>
@@ -26,6 +26,13 @@ export default {
         right: 0;
         top: 50%;
         transform: translateY(-50%);
+    }
+    @media all and (max-width: 767px) {
+        .user-navigation ul {
+            position: inherit;
+            right: inherit;
+            top: inherit;
+        }
     }
     .user-navigation ul li {
         list-style: none;

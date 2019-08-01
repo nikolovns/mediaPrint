@@ -1,5 +1,5 @@
 <template>
-    <div class="footer">
+    <div class="row footer">
         <p>&copy; PrintMe 2019</p>
     </div>
 </template>

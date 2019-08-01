@@ -12,14 +12,14 @@ import UserRegister from './components/user/UserRegister.vue'
 import About from './components/main_pages/About.vue'
 
 export const routes = [
-    {path: '', component: Home},
-    {path: '/products', component: Products},
-    {path: '/products/business-card', component: Media},
-    {path: '/user', component: User, children: [
+    { path: '', component: Home},
+    { path: '/products', component: Products},
+    { path: '/products/business-card', component: Media},
+    { path: '/user', component: User, children: [
         { path: 'login', component: UserLogin },
         { path: 'register', component: UserRegister },
-        {path: ':id', component: UserDetails},
-        {path: ':id/products', component: UserProducts}
+        { path: ':id', component: UserDetails},
+        { path: ':id/products', component: UserProducts}
     ]},
     {path: '/about', component: About},
 ]

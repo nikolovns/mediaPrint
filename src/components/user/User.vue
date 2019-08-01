@@ -13,10 +13,8 @@ import UserProducts from './UserProducts'
 
 export default {
     components: {
-        'app-login': UserLogin,
-        'app-register': UserRegister,
-        'app-details': UserDetails,
-        'app-products': UserProducts
+        // 'app-details': UserDetails,
+        // 'app-products': UserProducts
     }
 }
 </script>
