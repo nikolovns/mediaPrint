@@ -3,7 +3,7 @@
         <ul class="navbar-list">
             <li class="navbar-item"><router-link to="/">Home</router-link></li>
             <li class="navbar-item"><router-link to='/products'>Products</router-link></li>
-            <li class="navbar-item"><router-link to="about">About</router-link></li>
+            <li class="navbar-item"><router-link to="/about">About</router-link></li>
         </ul>
     </nav>
     
