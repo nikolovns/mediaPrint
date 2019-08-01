@@ -1,12 +1,16 @@
 <template>
   <div id="app">
-  <router-view></router-view>
-    <!-- <app-home></app-home>
-    <app-media></app-media> -->
+      <div class="container">
+          <app-header></app-header>
+          <router-view></router-view>
+          <app-footer></app-footer>
+      </div>
   </div>
 </template>
 
 <script>
+    import Header from './components/partials/Header.vue'
+    import Footer from './components/partials/Footer.vue'
     import Home from './components/main_pages/Home.vue'
     import Products from './components/main_pages/Products.vue'
     import About from './components/main_pages/About.vue'
@@ -19,6 +23,8 @@
             }
         },
         components: {
+            'app-header': Header,
+            'app-footer': Footer,
             'app-home': Home,
             'app-products': Products,
             'app-about': About,
