@@ -1,8 +1,9 @@
 <template>
     <div class="user-navigation">
         <ul>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/register">Register</a></li>
+            <li><router-link to="/user">User</router-link></li>
+            <li><router-link to="/user/login">Login</router-link></li>
+            <li><router-link to="/user/register">Register</router-link>  </li>
         </ul>
     </div>
 </template>

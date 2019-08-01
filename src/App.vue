@@ -14,8 +14,9 @@
     import Home from './components/main_pages/Home.vue'
     import Products from './components/main_pages/Products.vue'
     import About from './components/main_pages/About.vue'
+    import User from './components/user/User.vue'
     import Media from './components/media/Media.vue'
-
+    
     export default {
         data() {
             return {
@@ -25,11 +26,7 @@
         components: {
             'app-header': Header,
             'app-footer': Footer,
-            'app-home': Home,
-            'app-products': Products,
-            'app-about': About,
-            'app-media': Media,
-            
+            'app-media': Media
         }
     }
 
