@@ -6,20 +6,25 @@
 
             <div class="col-md-3 columns left-sidebar">
                 <div>
-                    <input type="checkbox" name="business-card" id="business-card">
+                    <input v-model="productType" type="checkbox" value="business card" name="business-card" id="business-card">
                     <label for="business-card">Business Card</label>
                 </div>
                 <div>
-                    <input type="checkbox" name="brochure" id="brochure">
+                    <input v-model="productType" type="checkbox" value="brochure" name="brochure" id="brochure" checked>
                     <label for="brochure">Brochures</label>
                 </div>
             </div>
 
             <div class="col-md-9 columns row right-sidebar">
                 <div class="row">
-                    <div class="col-md-4 columns product-grid" v-for="product in products" :key="product.id">
+
+                    <div v-for="product in filterProductObj" 
+                        :key="product.id"
+                        class="col-md-4 columns product-grid"
+                    >
                         <img :src="product.imgPath" alt="">
                     </div>
+                    
                 </div>
             </div>
 
@@ -32,12 +37,27 @@ export default {
     data() {
         return {
             products: [
-                {id: '1', imgPath: '../../src/assets/images/bc1.jpg'},
-                {id: '2', imgPath: '../../src/assets/images/bc2.jpg'},
-                {id: '3', imgPath: '../../src/assets/images/bc3.jpg'},
-                {id: '4', imgPath: '../../src/assets/images/bc1.jpg'},
-                {id: '5', imgPath: '../../src/assets/images/bc2.jpg'},
-            ]
+                {id: '1', imgPath: '../../src/assets/images/bc1.jpg', type: 'business card'},
+                {id: '2', imgPath: '../../src/assets/images/bc2.jpg', type: 'business card'},
+                {id: '3', imgPath: '../../src/assets/images/bc3.jpg', type: 'brochure'},
+                {id: '4', imgPath: '../../src/assets/images/bc1.jpg', type: 'brochure'},
+                {id: '5', imgPath: '../../src/assets/images/bc2.jpg', type: 'business card'},
+            ],
+            productType: ["business card", "brochure"],
+        }
+    },
+    methods: {
+        returnProductType(arr) {
+            arr.forEach(e=>{
+                return e;
+            })
+        }
+    },
+    computed: {
+        filterProductObj() {
+            return this.products.filter((element)=>{
+                return this.productType.includes(element.type)
+            })
         }
     }
 }
