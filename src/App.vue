@@ -1,10 +1,15 @@
 <template>
   <div id="app">
-    <app-media></app-media>
+  <router-view></router-view>
+    <!-- <app-home></app-home>
+    <app-media></app-media> -->
   </div>
 </template>
 
 <script>
+    import Home from './components/main_pages/Home.vue'
+    import Products from './components/main_pages/Products.vue'
+    import About from './components/main_pages/About.vue'
     import Media from './components/media/Media.vue'
 
     export default {
@@ -14,7 +19,11 @@
             }
         },
         components: {
-            'app-media': Media
+            'app-home': Home,
+            'app-products': Products,
+            'app-about': About,
+            'app-media': Media,
+            
         }
     }
 
