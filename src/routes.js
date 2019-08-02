@@ -18,8 +18,10 @@ export const routes = [
     { path: '/user', component: User, children: [
         { path: 'login', component: UserLogin },
         { path: 'register', component: UserRegister },
-        { path: ':id', component: UserDetails},
-        { path: ':id/products', component: UserProducts}
+        { path: ':id', components: {
+            default: UserDetails,
+            products: UserProducts
+        }},
     ]},
     {path: '/about', component: About},
 ]

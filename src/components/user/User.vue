@@ -1,7 +1,11 @@
 <template>
-    <div class="user-container">
-        <h1>User profile</h1>
+    <div class="user-container row">
+        
+        <div class="page-title col-md-12">
+            <h1>User profile</h1>
+        </div>
         <router-view></router-view>
+        <router-view name="products"></router-view>
     </div>
 </template>
 
