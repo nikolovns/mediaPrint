@@ -22,7 +22,9 @@
                         :key="product.id"
                         class="col-md-4 columns product-grid"
                     >
-                        <img :src="product.imgPath" alt="">
+                        <router-link :to="'/products/' + prityUrl(product.type) + '/' + product.id">
+                            <img :src="product.imgPath" alt="">
+                        </router-link>
                     </div>
                     
                 </div>
@@ -47,10 +49,8 @@ export default {
         }
     },
     methods: {
-        returnProductType(arr) {
-            arr.forEach(e=>{
-                return e;
-            })
+        prityUrl(url) {
+            return url.replace(' ', '-')
         }
     },
     computed: {

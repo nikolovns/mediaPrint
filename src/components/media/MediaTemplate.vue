@@ -1,5 +1,5 @@
 <template>
-    <div class="media-container media-template-container six columns">
+    <div class="media-container media-template-container col-md-6 columns">
         <h2>Template</h2>
 
         <div 
@@ -50,7 +50,7 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 
     .media-type-container{
         border: 1px solid #ccc;
@@ -67,7 +67,6 @@ export default {
     }
 
     img {
-        max-width: 100%;
         width: 30%;
         min-width: 100px;
     }

@@ -1,5 +1,5 @@
 <template>
-   <div class="media-container media-form-container six columns">
+   <div class="media-container media-form-container col-md-6 columns">
         <h2>Form</h2>
         
             <div 

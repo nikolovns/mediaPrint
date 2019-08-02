@@ -13,8 +13,12 @@ import About from './components/main_pages/About.vue'
 
 export const routes = [
     { path: '', component: Home},
-    { path: '/products', component: Products},
-    { path: '/products/business-card', component: Media},
+    { path: '/products', component: Products },
+
+
+    { path: '/products/:type/:id', component: Media},
+
+
     { path: '/user', component: User, children: [
         { path: 'login', component: UserLogin },
         { path: 'register', component: UserRegister },
