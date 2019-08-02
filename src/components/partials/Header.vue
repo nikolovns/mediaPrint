@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-sm-12 col-md-2 columns">
                 <div class="main-logo">
-                    <img src="../../assets/logo.png" alt="Print me">
+                    <img @click="goToHome" src="../../assets/logo.png" alt="Print me">
                 </div>
             </div>
 
@@ -29,7 +29,12 @@ export default {
     components: {
         'app-user-nav': UserNavigation,
         'app-main-nav': MainNavigation
-    }    
+    },
+    methods: {
+        goToHome() {
+            this.$router.push('/');
+        }
+    }
 }
 </script>
 
@@ -39,6 +44,7 @@ export default {
     }
     .main-logo img {
         max-height: 100%;
+        cursor: pointer;
     }
 </style>
 
