@@ -1,36 +1,35 @@
 <template>
-    
-    <div>
-        <div class="row">
-            <div class="col-md-12 columns"><h1>Products</h1></div>
-
-            <div class="col-md-3 columns left-sidebar">
-                <div>
-                    <input v-model="productType" type="checkbox" value="business card" name="business-card" id="business-card">
-                    <label for="business-card">Business Card</label>
-                </div>
-                <div>
-                    <input v-model="productType" type="checkbox" value="brochure" name="brochure" id="brochure">
-                    <label for="brochure">Brochures</label>
-                </div>
-            </div>
-
-            <div class="col-md-9 columns row right-sidebar">
-                <div class="row">
-
-                    <div v-for="product in filterProductObj" 
-                        :key="product.id"
-                        class="col-md-4 columns product-grid"
-                    >
-                        <router-link :to="'/products/' + prityUrl(product.type) + '/' + product.id">
-                            <img :src="product.imgPath" alt="">
-                        </router-link>
-                    </div>
-                    
-                </div>
-            </div>
-
+    <div class="row">
+        <div class="page-title col-md-12 columns">
+            <h1>Products</h1>
         </div>
+
+        <div class="col-md-3 columns left-sidebar">
+            <div>
+                <input v-model="productType" type="checkbox" value="business card" name="business-card" id="business-card">
+                <label for="business-card">Business Card</label>
+            </div>
+            <div>
+                <input v-model="productType" type="checkbox" value="brochure" name="brochure" id="brochure">
+                <label for="brochure">Brochures</label>
+            </div>
+        </div>
+
+        <div class="col-md-9 columns row right-sidebar">
+            <div class="row">
+
+                <div v-for="product in filterProductObj" 
+                    :key="product.id"
+                    class="col-md-4 columns product-grid"
+                >
+                    <router-link :to="'/products/' + prityUrl(product.type) + '/' + product.id">
+                        <img :src="product.imgPath" alt="">
+                    </router-link>
+                </div>
+                
+            </div>
+        </div>
+
     </div>
 </template>
 

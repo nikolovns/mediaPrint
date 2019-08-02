@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-      <div class="container">
+      <div class="container page-container">
           <app-header></app-header>
           <router-view></router-view>
-          <app-footer></app-footer>
       </div>
+      <app-footer></app-footer>
   </div>
 </template>
 
@@ -44,6 +44,13 @@
     html, body, #app {
         min-height: 100%;
         height: 100%;
+    }
+    #app {
+        position: relative;
+    }
+    .page-container {
+        min-height: 100%;
+        padding-bottom: 80px;
     }
 
 </style>
