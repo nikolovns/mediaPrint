@@ -10,7 +10,7 @@
                     <label for="business-card">Business Card</label>
                 </div>
                 <div>
-                    <input v-model="productType" type="checkbox" value="brochure" name="brochure" id="brochure" checked>
+                    <input v-model="productType" type="checkbox" value="brochure" name="brochure" id="brochure">
                     <label for="brochure">Brochures</label>
                 </div>
             </div>
@@ -45,7 +45,7 @@ export default {
                 {id: '4', imgPath: '../../src/assets/images/bc1.jpg', type: 'brochure'},
                 {id: '5', imgPath: '../../src/assets/images/bc2.jpg', type: 'business card'},
             ],
-            productType: ["business card", "brochure"],
+            productType: [],
         }
     },
     methods: {
@@ -55,6 +55,10 @@ export default {
     },
     computed: {
         filterProductObj() {
+            if (this.productType.length < 1) {
+                return this.products
+            }
+
             return this.products.filter((element)=>{
                 return this.productType.includes(element.type)
             })
