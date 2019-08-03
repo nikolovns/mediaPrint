@@ -5,22 +5,54 @@
             <h1>User profile</h1>
         </div>
         <div class="col-md-12">
-        <ul class="nav nav-tabs">
-            <li class="nav-item">
-                <a href="#" class="nav-link">Details</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">Products</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">Orders</a>
-            </li>
-        </ul>
+            <ul class="nav nav-tabs">
+
+                <li 
+                    class="nav-item" 
+                    v-for="(category, index) in categories" :key="index" 
+                    @click="selectedCategory = category" 
+                    >
+                    <a :class="{ 'active': selectedCategory == category }" class="nav-link">{{ category }}</a>
+
+                </li>
+
+
+
+                <!-- <li class="nav-item">
+                    <a href="#details" 
+                        class="nav-link"
+                        @click="tabClick"
+                    >Details</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#products" class="nav-link">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#order" class="nav-link">Orders</a>
+                </li> -->
+            </ul>
+            <div class="tab-content">
+                <template v-if="showSelectedTab('Details')">
+                    <div id="details">
+                        <router-view class="tab-pane" :class="[showSelectedTab('Details') ? 'active' : 'fade']"></router-view>
+                    </div>
+                </template>
+
+                <template v-if="showSelectedTab('Products')">
+                    <div id="products">
+                        <router-view name="products" class="tab-pane" :class="[showSelectedTab('Products') ? 'active' : 'fade']"></router-view>
+                    </div>
+                </template>
+
+                <template v-if="showSelectedTab('Orders')">
+                    <div id="orders">
+                        <router-view name="orders" class="tab-pane" :class="[showSelectedTab('Orders') ? 'active' : 'fade']"></router-view>
+                    </div>
+                </template>
+                
+            </div>
         </div>
-
-
-        <router-view></router-view>
-        <router-view name="products"></router-view>
+        
     </div>
 </template>
 
@@ -31,6 +63,17 @@ import UserDetails from './UserDetails'
 import UserProducts from './UserProducts'
 
 export default {
+    data() {
+        return {
+            selectedCategory: 'Details',
+            categories: ['Details', 'Products', 'Orders']
+        }
+    },
+    methods: {
+        showSelectedTab(category) {
+            return this.selectedCategory == category;
+        }
+    },
     components: {
         // 'app-details': UserDetails,
         // 'app-products': UserProducts

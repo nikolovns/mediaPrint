@@ -8,6 +8,7 @@ import UserDetails from './components/user/UserDetails.vue'
 import UserProducts from './components/user/UserProducts.vue'
 import UserLogin from './components/user/UserLogin.vue'
 import UserRegister from './components/user/UserRegister.vue'
+import UserOrders from './components/user/UserOrders.vue'
 
 import About from './components/main_pages/About.vue'
 
@@ -24,7 +25,8 @@ export const routes = [
         { path: 'register', component: UserRegister },
         { path: ':id', components: {
             default: UserDetails,
-            products: UserProducts
+            products: UserProducts,
+            orders: UserOrders
         }},
     ]},
     {path: '/about', component: About},
