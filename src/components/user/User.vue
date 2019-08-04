@@ -24,7 +24,11 @@
 
                 <template v-if="showSelectedTab('Products')">
                     <div id="products">
-                        <router-view name="products" :class="['tab-pane', showSelectedTab('Products') ? 'active' : 'fade']"></router-view>
+                        <router-view 
+                            name="products" 
+                            :class="['tab-pane', showSelectedTab('Products') ? 'active' : 'fade']"
+                            :userProducts="userProducts"
+                        ></router-view>
                     </div>
                 </template>
 
@@ -53,6 +57,47 @@ export default {
             categories: ['Details', 'Products', 'Orders'],
             userData: [
                 {'name': 'John Doe', 'email': 'john@mail.com', 'web': 'the-best.com', 'phone': '8888 888 888', 'address': "John's city" },
+            ],
+            userProducts: [
+                {"id":"1", 
+                "type":"1", 
+                "name":"John Doe", 
+                "position":"Mnager", 
+                "company":"John's Company", 
+                "phone":"0888 888 888", 
+                "address":"John's street", 
+                "email":"john@gmail.com", 
+                "web":"www.the-best.com",
+                "logo":"logo",
+                "background":"#ccc",
+                "image":"image"
+                },
+                {"id":"3", 
+                "type":"1", 
+                "name":"John Doe", 
+                "position":"Mnager", 
+                "company":"John's Company", 
+                "phone":"0888 888 888", 
+                "address":"John's street", 
+                "email":"john@gmail.com", 
+                "web":"www.the-best.com",
+                "logo":"logo",
+                "background":"#ccc",
+                "image":"image 2"
+                },
+                {"id":"2", 
+                "type":"2", 
+                "name":"John Doe", 
+                "position":"Mnager", 
+                "company":"John's Company", 
+                "phone":"0888 888 888", 
+                "address":"John's street", 
+                "email":"john@gmail.com", 
+                "web":"www.the-best.com",
+                "logo":"logo 2",
+                "background":"#ddd",
+                "image":"image 2"
+                }
             ]
         }
     },
