@@ -34,7 +34,11 @@
 
                 <template v-if="showSelectedTab('Orders')">
                     <div id="orders">
-                        <router-view name="orders" :class="['tab-pane', showSelectedTab('Orders') ? 'active' : 'fade']"></router-view>
+                        <router-view 
+                            name="orders" 
+                            :class="['tab-pane', showSelectedTab('Orders') ? 'active' : 'fade']"
+                            :userOrders="userOrders"
+                        ></router-view>
                     </div>
                 </template>
                 
@@ -97,6 +101,28 @@ export default {
                 "logo":"logo 2",
                 "background":"#ddd",
                 "image":"image 2"
+                }
+            ],
+            userOrders: [
+                {"userId": "1",
+                "id":"1",
+                "productId":"1",
+                "productName":"Name 1",
+                "image": "Image 1",
+                "userName": "John Doe",
+                "phone":"0888 888 888",
+                "address":"Jhon's street",
+                'quantity': 100
+                },
+                {"userId": "1",
+                "id":"2",
+                "productId":"3",
+                "productName":"Name 3",
+                "image": "Image 3",
+                "userName": "John Doe",
+                "phone":"0888 888 888",
+                "address":"Jhon's street",
+                'quantity': 500
                 }
             ]
         }
