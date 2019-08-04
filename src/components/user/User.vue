@@ -13,40 +13,24 @@
                     @click="selectedCategory = category" 
                     >
                     <a :class="{ 'active': selectedCategory == category }" class="nav-link">{{ category }}</a>
-
                 </li>
-
-
-
-                <!-- <li class="nav-item">
-                    <a href="#details" 
-                        class="nav-link"
-                        @click="tabClick"
-                    >Details</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#products" class="nav-link">Products</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#order" class="nav-link">Orders</a>
-                </li> -->
             </ul>
             <div class="tab-content">
                 <template v-if="showSelectedTab('Details')">
                     <div id="details">
-                        <router-view class="tab-pane" :class="[showSelectedTab('Details') ? 'active' : 'fade']"></router-view>
+                        <router-view :userData="userData" :class="['tab-pane', showSelectedTab('Details') ? 'active' : 'fade']"></router-view>
                     </div>
                 </template>
 
                 <template v-if="showSelectedTab('Products')">
                     <div id="products">
-                        <router-view name="products" class="tab-pane" :class="[showSelectedTab('Products') ? 'active' : 'fade']"></router-view>
+                        <router-view name="products" :class="['tab-pane', showSelectedTab('Products') ? 'active' : 'fade']"></router-view>
                     </div>
                 </template>
 
                 <template v-if="showSelectedTab('Orders')">
                     <div id="orders">
-                        <router-view name="orders" class="tab-pane" :class="[showSelectedTab('Orders') ? 'active' : 'fade']"></router-view>
+                        <router-view name="orders" :class="['tab-pane', showSelectedTab('Orders') ? 'active' : 'fade']"></router-view>
                     </div>
                 </template>
                 
@@ -66,17 +50,16 @@ export default {
     data() {
         return {
             selectedCategory: 'Details',
-            categories: ['Details', 'Products', 'Orders']
+            categories: ['Details', 'Products', 'Orders'],
+            userData: [
+                {'name': 'John Doe', 'email': 'john@mail.com', 'web': 'the-best.com', 'phone': '8888 888 888', 'address': "John's city" },
+            ]
         }
     },
     methods: {
         showSelectedTab(category) {
             return this.selectedCategory == category;
         }
-    },
-    components: {
-        // 'app-details': UserDetails,
-        // 'app-products': UserProducts
     }
 }
 </script>
