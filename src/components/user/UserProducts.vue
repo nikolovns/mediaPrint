@@ -3,7 +3,10 @@
         <div class="page-title col-md-12 columns">
             <h1>User Products</h1>
         </div>
-        <form class="row col-md-12 columns" action="">
+        <form 
+            class="row col-md-12 columns" action=""
+            @submit="makeOrder"
+        >
             <div class="business col-sm-12 col-md-6 columns">
                 <h2>Business Cards</h2>
                 <div v-for="product in userProducts" :key="product.id">
@@ -15,8 +18,13 @@
 
             <div class="business col-sm-12 col-md-6 columns">
                 <h2>Brouchures</h2>
-                <div v-for="product in userProducts" :key="product.id">
-                    <div v-if="product.type == 2">
+                <div 
+                    v-for="product in userProducts" 
+                    :key="product.id"
+                >
+                    <div 
+                        v-if="product.type == 2"
+                    >
                         <p>{{product.image}}</p>
                     </div>
                 </div>
@@ -35,6 +43,11 @@ export default {
         userProducts: {
             type: Array,
             require: true
+        }
+    },
+    methods: {
+        makeOrder() {
+            this.$router.push('/shopping-card');
         }
     }
 }

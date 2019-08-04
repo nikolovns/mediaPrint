@@ -12,14 +12,16 @@ import UserOrders from './components/user/UserOrders.vue'
 
 import About from './components/main_pages/About.vue'
 
+import Checkout from './components/checkout/Checkout.vue'
+import ShoppingCard from './components/checkout/ShoppingCard.vue'
+
 export const routes = [
-    { path: '', component: Home},
+    //homepage
+    { path: '', component: Home },
+    //products
     { path: '/products', component: Products },
-
-
-    { path: '/products/:type/:id', component: Media},
-
-
+    { path: '/products/:type/:id', component: Media },
+    //user
     { path: '/user', component: User, children: [
         { path: 'login', component: UserLogin },
         { path: 'register', component: UserRegister },
@@ -29,5 +31,10 @@ export const routes = [
             orders: UserOrders
         }},
     ]},
-    {path: '/about', component: About},
+    //about
+    { path: '/about', component: About },
+    //checkout
+    { path: '/shopping-card', component: Checkout, children: [
+        { path: '', component: ShoppingCard }
+    ] }
 ]
